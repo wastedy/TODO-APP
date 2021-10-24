@@ -6,13 +6,32 @@
  SDK .NET 5
 
 # Passo a passo
- Instale o httprepl com o comando: ###dotnet tool install -g Microsoft.dotnet-httprepl;<br>
- Execute ###dotnet run;<br>
- Use o httprepl para conectar à API;<br>
- ###httprepl http://localhost:5000
- Depois use o comando: "cd" para selecionar a API;<br>
- Por último: GET (retorna o que tem na API), <br>
- GET "id" (seleciona alguma tarefa pelo Id), <br>
- POST -c "tarefa" (adiciona alguma tarefa na API), <br>
- PUT "id" -c "tarefa" (atualiza algo na API) e <br>
- DELETE "id" (remove algum objeto da lista na API)
+ ### Instale o httprepl com o comando:
+    dotnet tool install -g Microsoft.dotnet-httprepl
+    
+ ### Execute 
+    dotnet run
+ 
+ ### Use o httprepl para conectar à API
+    httprepl http://localhost:5000
+ 
+ ### Digite para listar as APIs:
+    ls
+ 
+ ### Depois use o comando para selecionar a API:
+    cd Tarefa
+ 
+ ### Para retornar o que tem na API:
+    GET
+ 
+ ### Retornar alguma tarefa específica pelo Id:
+    GET <id>
+ 
+ ### Adicionar alguma tarefa na lista de tarefas da API:
+    POST -c "{"name": "exemplo", "Date": "2021-10-24", "isComplete": false}"
+ 
+ ### Atualizar o estado de conclusão de alguma tarefa:
+    PUT <id> -c "complete"
+ 
+ ### Remover alguma tarefa da API:
+    DELETE <id>
