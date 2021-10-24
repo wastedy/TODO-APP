@@ -3,7 +3,7 @@
 
 # Requisitos
  Httprepl,<br>
- SDK .NET 5
+ SDK .NET 5.
 
 # Passo a passo
  ### Instale o httprepl com o comando:
