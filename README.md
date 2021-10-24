@@ -1,5 +1,5 @@
 # TODO-APP
- Aplicação de gerenciamento de tarefas
+ API de lista de tarefas.
 
 # Requisitos
  Httprepl,<br>
