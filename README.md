@@ -2,7 +2,7 @@
  Aplicação de gerenciamento de tarefas
 
 # Requisitos
- Httprepl<br>
+ Httprepl,<br>
  SDK .NET 5
 
 # Passo a passo
