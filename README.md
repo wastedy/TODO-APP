@@ -1,6 +1,6 @@
 # TODO-APP
  API de lista de tarefas.<br>
- Meu primeiro projeto em C# e .NET (ainda não finalizado)
+ Meu primeiro projeto em C# e .NET
 
 # Requisitos
  Httprepl,<br>
