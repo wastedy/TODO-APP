@@ -31,8 +31,7 @@
  ### Adicionar alguma tarefa na lista de tarefas da API:
     POST -c "{"name": "exemplo", "Date": "2021-10-24", "isComplete": false}"
  
- ### Atualizar o estado de conclusão de alguma tarefa:
-    PUT <id> -c "complete"
- 
- ### Remover alguma tarefa da API:
-    DELETE <id>
+ ### Marcar alguma tarefa como concluída:
+    cd ..
+    cd ConcluirTarefas
+    GET <id>
