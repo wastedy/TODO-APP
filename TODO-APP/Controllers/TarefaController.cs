@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using TODO_APP.Models;
@@ -29,7 +30,8 @@ namespace TODO_APP.Controllers
         [HttpPost]
         public IActionResult Create(Tarefa tarefa)
         {
-            TarefaService.Add(tarefa);
+            //tarefa.Date = DateTime.Parse(tarefa.Date); possível solução pra entrada em string para date
+            TarefaService.Add(tarefa); //dá problema também pq não consegui converter pra date antes de entrar no método
             return CreatedAtAction(nameof(Create), new { id = tarefa.Id }, tarefa);
         }
 
