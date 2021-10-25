@@ -29,7 +29,7 @@
     GET <id>
  
  ### Adicionar alguma tarefa na lista de tarefas da API:
-    POST -c "{"name": "exemplo", "Date": "2021-10-24", "isComplete": false}"
+    POST -c "{"name": "exemplo", "Date": "24-10-2021", "isComplete": false}"
  
  ### Marcar alguma tarefa como concluída:
     cd ..
