@@ -14,7 +14,7 @@ namespace TODO_APP.Controllers
         {
         }
         [HttpGet]
-        public ActionResult<List<Tarefa>> GetAll() => TarefaService.GetAll();
+        public ActionResult<List<Tarefa>> GetNotCompleted() => TarefaService.GetNotCompleted();
 
         [HttpGet("{id}")]
         public ActionResult<Tarefa> Get(int id)
@@ -30,16 +30,19 @@ namespace TODO_APP.Controllers
         [HttpPost]
         public IActionResult Create(Tarefa tarefa)
         {
-            //tarefa.Date = DateTime.Parse(tarefa.Date); possível solução pra entrada em string para date
-            TarefaService.Add(tarefa); //dá problema também pq não consegui converter pra date antes de entrar no método
+            TarefaService.Add(tarefa);
             return CreatedAtAction(nameof(Create), new { id = tarefa.Id }, tarefa);
         }
+    }
 
-        [HttpPut("{id}")]
-        public IActionResult Update(int id, string aux)
+    [Route("api/ConcluirTarefas")]
+    public class ConcluirTarefasController: ControllerBase
+    {
+        public ConcluirTarefasController()
         {
-            if(aux != "complete") //tentando fazer ele ler o conteudo do comando PUT do httprepl
-                return BadRequest();
+        }
+        [HttpGet("{id}")]
+        public IActionResult Complete(int id){
 
             var tarefa = TarefaService.Get(id);
             if (tarefa is null)
@@ -47,20 +50,7 @@ namespace TODO_APP.Controllers
 
             TarefaService.Complete(tarefa);
 
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            var tarefa = TarefaService.Get(id);
-
-            if (tarefa is null)
-                return NotFound();
-
-            TarefaService.Delete(id);
-
-            return NoContent();
+            return Content("Tarefa concluída.");
         }
     }
 }
