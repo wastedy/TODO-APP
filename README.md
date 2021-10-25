@@ -20,7 +20,7 @@
     ls
  
  ### Depois use o comando para selecionar a API:
-    cd Tarefa
+    cd api/Tarefa
  
  ### Para retornar o que tem na API:
     GET
