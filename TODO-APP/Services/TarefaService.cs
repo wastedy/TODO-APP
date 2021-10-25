@@ -13,15 +13,21 @@ namespace TODO_APP.Services
         {
             Tarefas = new List<Tarefa>
             {
-                new Tarefa { Id = 1, Name = "Homework", Date = new DateTime(2021, 08, 23), isComplete = false},
-                new Tarefa { Id = 2, Name = "Take a shower", Date = new DateTime(2021, 08, 22), isComplete = true}
+                new Tarefa { Id = 1, Name = "Homework", Date = DateTime.ParseExact("23-08-2021", "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture), isComplete = false},
+                new Tarefa { Id = 2, Name = "Take a shower", Date = DateTime.ParseExact("22-08-2021", "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture), isComplete = true},
+                new Tarefa { Id = 3, Name = "Take a breath", Date = DateTime.ParseExact("24-08-2021", "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture), isComplete = false}
             };
         }
 
 
-        public static List<Tarefa> GetAll() {
-            //Tarefas.Sort(); organizar a lista de tarefas sempre que ela for requisitada
-            return Tarefas;
+        public static List<Tarefa> GetNotCompleted() {
+            TarefaService.Ordenar(Tarefas);
+            List<Tarefa> Tarefas2 = new List<Tarefa>();
+            foreach(Tarefa a in Tarefas){
+                if(!a.isComplete)
+                    Tarefas2.Add(a);
+            }
+            return Tarefas2;
         }
 
         public static Tarefa Get(int id) => Tarefas.FirstOrDefault(t => t.Id == id);
@@ -36,9 +42,13 @@ namespace TODO_APP.Services
             tarefa.isComplete = true;
             Tarefas[index] = tarefa;
         }
-        public static void Sort(List<Tarefa> Tarefas)
+        public static void Ordenar(List<Tarefa> Tarefas)
         {
-            Tarefas.Sort((x, y) => DateTime.Compare(x.Date, y.Date)); //tentando organizar por data mas também tá dando problema
+            var Tarefas2 = from t in Tarefas
+            orderby t.Date
+            select t;
+
+            Tarefas = Tarefas2.ToList();
         }
 
         public static void Add(Tarefa tarefa)
