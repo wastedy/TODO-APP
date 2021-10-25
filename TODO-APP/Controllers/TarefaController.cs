@@ -7,7 +7,7 @@ using TODO_APP.Services;
 namespace TODO_APP.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class TarefaController : ControllerBase
     {
         public TarefaController()
