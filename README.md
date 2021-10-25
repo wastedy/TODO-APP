@@ -19,7 +19,7 @@
  ### Digite para listar as APIs:
     ls
  
- ### Depois use o comando para selecionar a API:
+ ### Depois use o comando para selecionar um controlador dentro da API:
     cd api/Tarefa
  
  ### Para retornar o que tem na API:
